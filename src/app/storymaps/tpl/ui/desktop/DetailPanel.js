@@ -150,6 +150,14 @@ define(["../../core/Helper",
 							_mainView.selectSymbol();
 							_this.buildSlide();
 						});
+						// remove click action added above (case-studies)
+						container.find(".detailPictureDiv img").unbind('click');
+						// add new click action (case-studies)
+						container.find(".detailPictureDiv img").click(function(){
+							console.log("new click action on detail image - line 156");
+							my_link = container.find(".swiper-slide-active .detailTextContainer .website a");
+							console.log(my_link.attr("href"));
+						});
 					}else{
 						$.each(themes, function(index){
 							if(index === 0  && (!app.isInBuilder || app.data.getWebAppData().getIsExternalData()))
@@ -589,7 +597,15 @@ define(["../../core/Helper",
 								_swipers[themeIndex].slideNext();
 							}
 						});
-
+						// remove click action added above (case-studies)
+						container.find(".detailPictureDiv img").unbind('click');
+						// add new click action (case-studies)
+						container.find(".detailPictureDiv img").click(function(){
+							console.log("new click action on detail image - line 603");
+							my_link = container.find(".swiper-slide-active .detailTextContainer .website a");
+							console.log(my_link.attr("href"));
+						});
+						
 						//_this.refreshSlides();
 						_swipers[themeIndex].update();
 
