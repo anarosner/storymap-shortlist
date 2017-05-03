@@ -602,8 +602,11 @@ define(["../../core/Helper",
 						// add new click action (case-studies)
 						container.find(".detailPictureDiv img").click(function(){
 							console.log("new click action on detail image - line 603");
-							my_link = container.find(".swiper-slide-active .detailTextContainer .website a");
+							my_link = container.find(".swiper-slide-active .detailTextContainer .pdflink a");
 							console.log(my_link.attr("href"));
+							if (my_link.attr("href") != null) {
+								window.open(my_link.attr("href"),"_blank");
+							}
 						});
 						
 						//_this.refreshSlides();
