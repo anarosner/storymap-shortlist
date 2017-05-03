@@ -130,6 +130,12 @@ define(["lib-build/css!./MainView",
 
 				_context = _myCanvas.getContext('2d');
 				_icon = new Image();
+				//_icon.src = app.data.getResponse().itemInfo.item.customIconURL; // case studies customization   app.data.getWebAppData().getCustomIconURL()
+				//_icon.src = app.data.getWebAppData().getCustomIconURL();  
+				console.log("get webmap"+app.data.getWebAppData().getWebmap());
+				console.log("custom icon url set");
+				console.log(_icon.src);
+				console.log("standard icon url set");
 				_icon.src = app.cfg.ICON_SRC;
 
 
@@ -138,7 +144,7 @@ define(["lib-build/css!./MainView",
 					_context.font = _myCanvas.width/3.8 + "pt open_sanssemibold, sans-serif";
 				};
 
-				_this.themeSelected = false;
+				_this.themeSelected = false; 
 
 				/*
 				 * Desktop UI
@@ -161,6 +167,28 @@ define(["lib-build/css!./MainView",
 
 				//app.ui.testPanel.init();
 				app.ui.tilePanel.init();
+
+				/* 
+				 * Moved canvas setup
+				 *
+				// Canvas icons
+				_myCanvas = document.createElement('canvas');
+
+				_context = _myCanvas.getContext('2d');
+				_icon = new Image();
+				//_icon.src = app.cfg.ICON_SRC;
+				//_icon.src = app.data.getResponse().itemInfo.item.customIconURL; // case studies customization   app.data.getWebAppData().getCustomIconURL()
+				_icon.src = app.data.getWebAppData().getCustomIconURL();  
+				console.log("custom icon url set");
+				console.log(app.data.getWebAppData().getWebmap());
+				console.log(_icon.src);
+
+
+				_icon.onload = function(){
+					_context.drawImage(_icon, 0, 0);
+					_context.font = _myCanvas.width/3.8 + "pt open_sanssemibold, sans-serif";
+				};
+				 */				
 
 				/*
 				 * Mobile UI
@@ -1600,6 +1628,7 @@ define(["lib-build/css!./MainView",
 						app.detailPanelBuilder.init(app.ui.mainView, builderView);
 						app.data.getWebAppData().setTitle(app.data.getResponse().itemInfo.item.title);
 						app.data.getWebAppData().setSubtitle(app.data.getResponse().itemInfo.item.description);
+						app.data.getWebAppData().setCustomIconURL(app.data.getResponse().itemInfo.item.customIconURL); // case studies customization
 						//app.data.getWebMap().item.extent = builderView.serializeExtentToItem(app.map.extent);
 						//app.map._params.extent = new Extent(JSON.parse(JSON.stringify(app.map.extent.toJson())));
 						//app.data.getWebAppData().setMapExtent(app.map.extent);
@@ -1657,6 +1686,7 @@ define(["lib-build/css!./MainView",
 					app.detailPanelBuilder.init(app.ui.mainView, builderView);
 					app.data.getWebAppData().setTitle(app.data.getResponse().itemInfo.item.title);
 					app.data.getWebAppData().setSubtitle(app.data.getResponse().itemInfo.item.description);
+					app.data.getWebAppData().setCustomIconURL(app.data.getResponse().itemInfo.item.customIconURL); // case studies customization
 					//app.data.getWebMap().item.extent = builderView.serializeExtentToItem(app.map.extent);
 					//app.map._params.extent = new Extent(JSON.parse(JSON.stringify(app.map.extent.toJson())));
 					//app.data.getWebAppData().setMapExtent(app.map.extent);

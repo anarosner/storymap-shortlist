@@ -186,7 +186,15 @@ define(["dojo/_base/lang"],
 			{
 				_data.values.subtitle = subtitle;
 			},
-
+			setCustomIconURL: function(customIconURL)
+			{
+				_data.values.customIconURL = customIconURL; // case studies customization
+			},
+			getCustomIconURL: function()
+			{
+				return _data.values.customIconURL;
+				//return "custom url will go here";
+			},			
 			/*
 			 * Settings
 			 */
