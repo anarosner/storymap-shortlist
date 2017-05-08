@@ -1,5 +1,6 @@
-deploy/
+notdeploy/
 node_modules/
+*.zip
 
 #################
 ## Eclipse
