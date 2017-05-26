@@ -16,7 +16,7 @@ define(["lib-build/css!./Desktop",
 		{
 			var _this = this;
 
-			this.init = function(hide, title, subtitle, headerCfg, colors, displaySwitchBuilderButton, defaultToCompact, customIconURL)
+			this.init = function(hide, title, subtitle, headerCfg, colors, displaySwitchBuilderButton, defaultToCompact, customIconURL) //case studies customization: add custom icon url as function parameter
 			{
 				setColor(colors);
 

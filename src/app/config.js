@@ -40,7 +40,7 @@ app.cfg = {
 	NUMBERED: true,
 	FILTER_BY_EXTENT: false, //When false, bad on iPhone
 
-	//ICON_SRC: "resources/tpl/viewer/icons/staticIcon/drought_case_studies.png",
+	//ICON_SRC: "resources/tpl/viewer/icons/staticIcon/drought_case_studies.png",  //case studies customization: change default map marker icon
 	ICON_SRC: "resources/tpl/viewer/icons/staticIcon/Marker1.png",
 
 	// Map popup colors
@@ -53,13 +53,13 @@ app.cfg = {
 	SELECTED_POPUP_ARROW_COLOR: "#444444",
 
 	LEFT_PANE_WIDTH_TWO_COLUMN: 335,
-	LEFT_PANE_WIDTH_THREE_COLUMN: 450, //override widths
-	LEFT_PANE_WIDTH_FOUR_COLUMN: 450,
+	LEFT_PANE_WIDTH_THREE_COLUMN: 450, //case studies customization: narrow side panels
+	LEFT_PANE_WIDTH_FOUR_COLUMN: 450, //case studies customization: narrow side panels
 	//LEFT_PANE_WIDTH_THREE_COLUMN: 490,
 	//LEFT_PANE_WIDTH_FOUR_COLUMN: 645,
 
 	TWO_COLUMN_THRESHOLD: 1000,
-	THREE_COLUMN_THRESHOLD: 1450,
+	THREE_COLUMN_THRESHOLD: 1450, //case studies customization: narrow side panels
 	//THREE_COLUMN_THRESHOLD: 1450,
 
 	//

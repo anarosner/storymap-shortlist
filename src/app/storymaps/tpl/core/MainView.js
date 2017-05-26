@@ -129,15 +129,16 @@ define(["lib-build/css!./MainView",
 				_myCanvas = document.createElement('canvas');
 
 				_context = _myCanvas.getContext('2d');
-				_icon = new Image();
-
+				_icon = new Image(); // case studies customization: set icon_src at a later point in the code, after web app settings are loaded from JSON file
+				//_icon.src = app.cfg.ICON_SRC;
+				
 				_icon.onload = function(){
 					console.log("_icon.onload is called");
 					_context.drawImage(_icon, 0, 0);
 					_context.font = _myCanvas.width/3.8 + "pt open_sanssemibold, sans-serif";
 				};
 
-				_this.themeSelected = false; 
+				_this.themeSelected = false;
 
 				/*
 				 * Desktop UI
@@ -160,8 +161,6 @@ define(["lib-build/css!./MainView",
 
 				//app.ui.testPanel.init();
 				app.ui.tilePanel.init();
-
-
 
 				/*
 				 * Mobile UI
@@ -204,7 +203,7 @@ define(["lib-build/css!./MainView",
 
 				return true;
 			};
-				
+
 			this.webAppConfigLoaded = function()
 			{
 				//var enableSwitchBuilderBtn = _core.hasSwitchBuilderButton();
@@ -217,7 +216,7 @@ define(["lib-build/css!./MainView",
 				app.isGalleryCreation = ! app.data.getWebAppData().getWebmap();/*! app.data.getWebAppData().getOriginalData()
 					|| ! Object.keys(app.data.getWebAppData().getOriginalData().values).length;*/
 			};
-				
+
 			this.loadFirstWebmap = function(webmapIdOrJSON)
 			{
 				return this.loadWebmap(webmapIdOrJSON, $("#map")[0]);
@@ -274,7 +273,7 @@ define(["lib-build/css!./MainView",
 			{
 				initUI();
 			};
-			
+
 			this.getMapConfig = function(response)
 			{
 				var geocoder = app.data.getWebAppData().getGeneralOptions().geocoder ? app.data.getWebAppData().getGeneralOptions().geocoder : false;
@@ -455,7 +454,7 @@ define(["lib-build/css!./MainView",
 					return;
 				}
 				app.data.setShortlistLayerId(layer.id);
-				
+
 				app.data.getWebAppData().setShortlistLayerId(layer.id);
 				layer.setScaleRange(0,0);
 				layer.on("mouse-over", _this.layer_onMouseOver);
@@ -1615,7 +1614,7 @@ define(["lib-build/css!./MainView",
 						app.detailPanelBuilder.init(app.ui.mainView, builderView);
 						app.data.getWebAppData().setTitle(app.data.getResponse().itemInfo.item.title);
 						app.data.getWebAppData().setSubtitle(app.data.getResponse().itemInfo.item.description);
-						app.data.getWebAppData().setCustomIconURL(app.data.getResponse().itemInfo.item.customIconURL); // case studies customization
+						app.data.getWebAppData().setCustomIconURL(app.data.getResponse().itemInfo.item.customIconURL); // case studies customization: read in custom map marker icon url from web app settings JSON
 						//app.data.getWebMap().item.extent = builderView.serializeExtentToItem(app.map.extent);
 						//app.map._params.extent = new Extent(JSON.parse(JSON.stringify(app.map.extent.toJson())));
 						//app.data.getWebAppData().setMapExtent(app.map.extent);
@@ -1673,7 +1672,7 @@ define(["lib-build/css!./MainView",
 					app.detailPanelBuilder.init(app.ui.mainView, builderView);
 					app.data.getWebAppData().setTitle(app.data.getResponse().itemInfo.item.title);
 					app.data.getWebAppData().setSubtitle(app.data.getResponse().itemInfo.item.description);
-					app.data.getWebAppData().setCustomIconURL(app.data.getResponse().itemInfo.item.customIconURL); // case studies customization
+					app.data.getWebAppData().setCustomIconURL(app.data.getResponse().itemInfo.item.customIconURL); // case studies customization: read in custom map marker url from web app settings JSON
 					//app.data.getWebMap().item.extent = builderView.serializeExtentToItem(app.map.extent);
 					//app.map._params.extent = new Extent(JSON.parse(JSON.stringify(app.map.extent.toJson())));
 					//app.data.getWebAppData().setMapExtent(app.map.extent);

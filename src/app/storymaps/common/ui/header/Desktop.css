@@ -159,7 +159,7 @@
  */
 
 #headerDesktop .switchBuilder {
-	display: none !important;
+	display: none;
 }
 
 #headerDesktop .switchBuilder .switch-builder-close {
