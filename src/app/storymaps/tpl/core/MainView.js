@@ -130,15 +130,9 @@ define(["lib-build/css!./MainView",
 
 				_context = _myCanvas.getContext('2d');
 				_icon = new Image();
-				console.log( "check what is currently loaded at line 133:  webmap is " + app.data.getWebAppData().getWebmap() );
-				//_icon.src = app.data.getResponse().itemInfo.item.customIconURL; // case studies customization   
-				_icon.src = app.data.getWebAppData().getCustomIconURL();  // case studies customization 
-				console.log("custom icon url: " + _icon.src);
-				console.log("custom icon not working, set and use standard icon url");
-				_icon.src = app.cfg.ICON_SRC;
-
 
 				_icon.onload = function(){
+					console.log("_icon.onload is called");
 					_context.drawImage(_icon, 0, 0);
 					_context.font = _myCanvas.width/3.8 + "pt open_sanssemibold, sans-serif";
 				};
@@ -168,7 +162,6 @@ define(["lib-build/css!./MainView",
 				app.ui.tilePanel.init();
 
 
-				console.log( "check what is currently loaded at line 171:  webmap is " + app.data.getWebAppData().getWebmap() );
 
 				/*
 				 * Mobile UI
@@ -211,8 +204,6 @@ define(["lib-build/css!./MainView",
 
 				return true;
 			};
-
-			console.log( "check what is currently loaded at line 215:  app.data is " + app.data );
 				
 			this.webAppConfigLoaded = function()
 			{
@@ -226,9 +217,6 @@ define(["lib-build/css!./MainView",
 				app.isGalleryCreation = ! app.data.getWebAppData().getWebmap();/*! app.data.getWebAppData().getOriginalData()
 					|| ! Object.keys(app.data.getWebAppData().getOriginalData().values).length;*/
 			};
-
-			
-			console.log( "check what is currently loaded at line 231:  app.data is " + app.data );
 				
 			this.loadFirstWebmap = function(webmapIdOrJSON)
 			{
@@ -243,7 +231,20 @@ define(["lib-build/css!./MainView",
 			this.loadWebmap = function(webmapIdOrJSON, container, extent)
 			{
 				console.log("tpl.core.MainView - loadWebMap - webmapId:", webmapIdOrJSON);
-
+				
+				// case studies customization
+				//		check if a custom icon url is defined, and if so use in place of default map marker
+				console.log("setting the custom url - case studies customization"); 
+				if ( app.data.getWebAppData().getCustomIconURL() == undefined ) {
+					_icon.src = app.cfg.ICON_SRC;
+				}
+				else {
+				_icon.src = app.data.getWebAppData().getCustomIconURL();   					
+				}				
+				console.log(_icon);
+				console.log(_icon.src);
+				// end case studies customization
+				
 				var popup = new esri.dijit.Popup({
 					highlight: false
 				}, dojo.create("div"));
@@ -273,8 +274,7 @@ define(["lib-build/css!./MainView",
 			{
 				initUI();
 			};
-
-			console.log( "check what is currently loaded at line 279:  app.data is " + app.data );
+			
 			this.getMapConfig = function(response)
 			{
 				var geocoder = app.data.getWebAppData().getGeneralOptions().geocoder ? app.data.getWebAppData().getGeneralOptions().geocoder : false;
@@ -456,7 +456,6 @@ define(["lib-build/css!./MainView",
 				}
 				app.data.setShortlistLayerId(layer.id);
 				
-				console.log( "check what is currently loaded at line 459:  app.data is " + app.data );
 				app.data.getWebAppData().setShortlistLayerId(layer.id);
 				layer.setScaleRange(0,0);
 				layer.on("mouse-over", _this.layer_onMouseOver);
@@ -524,7 +523,6 @@ define(["lib-build/css!./MainView",
 						var themeIndex = themes.length - 1;
 						themes[themeIndex].id = themeIndex;
 						var color;
-						console.log( "check what is currently loaded at line 527:  app.data is " + app.data );
 						if(!app.data.getWebAppData().getTabs()[themeIndex] || !app.data.getWebAppData().getTabs()[themeIndex].color){
 							var colorIndex = themeIndex;
 							if(colorIndex > 7)
