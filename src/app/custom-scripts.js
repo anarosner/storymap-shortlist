@@ -8,7 +8,5 @@ define(["dojo/topic"], function(topic) {
 		/*
 		* Custom Javascript to be executed when the application is ready goes here
 		*/
-		console.log("running custom code")
-
 	});
 });
