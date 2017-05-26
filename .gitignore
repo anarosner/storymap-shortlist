@@ -1,4 +1,4 @@
-notdeploy/
+deploy/
 node_modules/
 *.zip
 
