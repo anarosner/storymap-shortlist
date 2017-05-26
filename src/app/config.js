@@ -40,8 +40,8 @@ app.cfg = {
 	NUMBERED: true,
 	FILTER_BY_EXTENT: false, //When false, bad on iPhone
 
-	ICON_SRC: "resources/tpl/viewer/icons/staticIcon/drought_case_studies.png",
-	//ICON_SRC: "resources/tpl/viewer/icons/staticIcon/Marker1.png",
+	//ICON_SRC: "resources/tpl/viewer/icons/staticIcon/drought_case_studies.png",
+	ICON_SRC: "resources/tpl/viewer/icons/staticIcon/Marker1.png",
 
 	// Map popup colors
 	POPUP_BACKGROUND_COLOR: "#666666",
