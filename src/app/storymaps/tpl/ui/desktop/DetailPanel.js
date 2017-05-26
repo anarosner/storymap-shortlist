@@ -602,10 +602,19 @@ define(["../../core/Helper",
 						// add new click action (case-studies)
 						container.find(".detailPictureDiv img").click(function(){
 							console.log("new click action on detail image - line 603");
-							my_link = container.find(".swiper-slide-active .detailTextContainer .pdflink a");
-							console.log(my_link.attr("href"));
+							my_link = container.find(".swiper-slide-active .detailTextContainer .videolink a");							
 							if (my_link.attr("href") != null) {
 								window.open(my_link.attr("href"),"_blank");
+								console.log(my_link.attr("href"));
+							}
+							else {
+								console.log("use more info link instead");
+								my_link = container.find(".swiper-slide-active .detailTextContainer .infolink a");
+								if (my_link.attr("href") != null) {
+									window.open(my_link.attr("href"),"_blank");
+									console.log(my_link.attr("href"));
+								}
+								
 							}
 						});
 						
