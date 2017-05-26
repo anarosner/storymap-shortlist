@@ -186,6 +186,8 @@ define(["dojo/_base/lang"],
 			{
 				_data.values.subtitle = subtitle;
 			},
+			
+			/* case studies customizations: set up code to read in custom map marker icon url */
 			setCustomIconURL: function(customIconURL)
 			{
 				_data.values.customIconURL = customIconURL; // case studies customization
@@ -195,6 +197,8 @@ define(["dojo/_base/lang"],
 				return _data.values.customIconURL;
 				//return "custom url will go here";
 			},			
+			
+			
 			/*
 			 * Settings
 			 */

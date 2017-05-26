@@ -75,7 +75,7 @@
 ul.tilelist {
 	/* initial width -- will be re-calculated in app */
 	width: 495px;
-	padding-left: 10px; /*case studies customization
+	padding-left: 10px; /*case studies customization: make overview images smaller, and adjust panel alignment accordingly
 	padding-left: 17px; */
 	padding-bottom: 10px;
 	display: inline-block;
@@ -103,7 +103,6 @@ ul.tilelist li {
     -webkit-transform: scale(0.9); 
     transform: scale(0.9);
 }
-
 
 ul.tilelist:hover li{
 

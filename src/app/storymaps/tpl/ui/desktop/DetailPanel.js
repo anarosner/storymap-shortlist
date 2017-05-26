@@ -150,11 +150,13 @@ define(["../../core/Helper",
 							_mainView.selectSymbol();
 							_this.buildSlide();
 						});
-						// remove click action added above (case-studies)
+						
+						/* case studies customization: change effect of clicking detail panel image*/
+						// remove default action (default advances to next location)
 						container.find(".detailPictureDiv img").unbind('click');
-						// add new click action (case-studies)
+						// add new click action: save link url to a variable to use later
 						container.find(".detailPictureDiv img").click(function(){
-							console.log("new click action on detail image - line 156");
+							console.log("new click action on detail image - capture link url");
 							my_link = container.find(".swiper-slide-active .detailTextContainer .website a");
 							console.log(my_link.attr("href"));
 						});
@@ -597,11 +599,12 @@ define(["../../core/Helper",
 								_swipers[themeIndex].slideNext();
 							}
 						});
-						// remove click action added above (case-studies)
+						/* case studies customization: change effect of clicking detail panel image*/
+						// remove default action (default advances to next location)
 						container.find(".detailPictureDiv img").unbind('click');
-						// add new click action (case-studies)
+						// add new click action: open video or more info link instead
 						container.find(".detailPictureDiv img").click(function(){
-							console.log("new click action on detail image - line 603");
+							console.log("clicked on detail image - line 607");
 							my_link = container.find(".swiper-slide-active .detailTextContainer .videolink a");							
 							if (my_link.attr("href") != null) {
 								window.open(my_link.attr("href"),"_blank");

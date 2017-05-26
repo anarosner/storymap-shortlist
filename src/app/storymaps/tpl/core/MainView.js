@@ -454,7 +454,6 @@ define(["lib-build/css!./MainView",
 					return;
 				}
 				app.data.setShortlistLayerId(layer.id);
-
 				app.data.getWebAppData().setShortlistLayerId(layer.id);
 				layer.setScaleRange(0,0);
 				layer.on("mouse-over", _this.layer_onMouseOver);
